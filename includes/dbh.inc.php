@@ -2,8 +2,8 @@
 
 <?php
 $host = 'localhost';
-$dbname = 'madrabbit';
-$dbusername = 'madrabbit';
+$dbname = 'AwayDatabase';
+$dbusername = 'username';
 $dbpassword = 'password';
 
 try {
