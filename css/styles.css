@@ -5,44 +5,44 @@ header {
     border-radius: 4px;
 }
 
-.Title{
+.Title {
     padding-top: 5px;
     font-size: larger;
 }
 
 
-.topnav a{
+.topnav a {
     display: inline-block;
     color: #bbc4c7;
     padding: 10px 20px;
     text-decoration: none;
 }
 
-.topnav a:hover{
+.topnav a:hover {
     color: #fbfcfc;
 }
 
-.topnav a.active{
+.topnav a.active {
     color: #f6da89;
 }
 
 
 
-body{
+body {
     background-color: #e1d5bc;
     font-family: 'Segoe UI', sans-serif;
 }
 
 
 
-.homepage .topnav{
-    background-color: #21414a; 
+.homepage .topnav {
+    background-color: #21414a;
 }
 
 
-.hero-img{    
+.hero-img {
     background-image: url("../img/pet-owner.jpg");
-    background-size: cover; 
+    background-size: cover;
     background-repeat: no-repeat;
     height: 550px;
     background-position: center;
@@ -50,7 +50,7 @@ body{
     border-bottom-right-radius: 4px;
 }
 
-.hero-text{
+.hero-text {
     position: relative;
     top: 50%;
     left: 50%;
@@ -59,13 +59,14 @@ body{
     opacity: 80%;
     width: 70%;
     max-width: 600px;
-    padding: 50px;   
-    
+    padding: 50px;
+
     text-align: center;
     background-color: #e1d5bc;
     color: #21414a;
 }
-.hero-text_customer{
+
+.hero-text_customer {
     position: relative;
     top: 50%;
     left: 50%;
@@ -74,22 +75,39 @@ body{
     opacity: 80%;
     width: 70%;
     max-width: 600px;
-    padding: 50px;   
+    padding: 50px;
     padding-top: 30px;
     padding-bottom: 50px;
-    
+
     text-align: center;
     background-color: #e1d5bc;
     color: #21414a;
 }
 
+.hero-text_sitter {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-.text-content{
+    opacity: 80%;
+    width: 70%;
+    max-width: 600px;
+    padding: 50px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+
+    text-align: center;
+    background-color: #e1d5bc;
+    color: #21414a;
+}
+
+.text-content {
     background-color: #f3ecdd;
     color: #21414a;
     padding: 20px;
     margin: 15px;
-    border-radius: 4px;   
+    border-radius: 4px;
 }
 
 .two-cols {
@@ -98,14 +116,14 @@ body{
 }
 
 
-.btn{
+.btn {
     border: 2px solid #c17b6d;
     border-radius: 8px;
     padding: 16px 32px;
     margin-top: 5px;
     cursor: pointer;
     transition-duration: 0.4s;
-    
+
     background-color: #c17b6d;
     color: #f3ecdd;
     font-weight: 600;
@@ -113,14 +131,19 @@ body{
     text-decoration: none;
 }
 
-.btn:hover{
+.btn:hover {
     color: #c17b6d;
     border: 2px solid #c17b6d;
     background-color: #f3ecdd;
 }
 
+.availability-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
-
-
-
-
+.availability-dropdown {
+    width: 48%;
+    margin-bottom: 10px;
+}

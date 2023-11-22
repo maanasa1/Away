@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +17,7 @@
     <div class="topnav">
         <a href="./index.html">Home</a>
         <a href="./customer.html">For Customers</a>
-        <a class ="active" href="./sitter.html">For Sitters</a>
+        <a class="active" href="./sitter.html">For Sitters</a>
         <a href="./login.php">Log In</a>
     </div>
 </header>
@@ -24,19 +25,89 @@
 
 <body class="homepage">
     <div class="hero-img">
-        <div class="hero-text">
+        <div class="hero-text_sitter">
             <h3>Interested in becoming a sitter?</h3>
+
+            <form id="form">
+
+                <div id="left">
+                    <label for="zipcode">Zipcode:</label><br>
+                    <input type="text" id="zipcode" name="zipcode"><br><br>
+
+                    <div class="availability-container">
+                        <div class="availability-dropdown">
+                            <label for="dropdown">Availabilty:</label><br>
+                            <select id="days" name="days" multiple>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
+                            </select><br>
+                        </div>
+
+                        <div class="availability-dropdown">
+                            <label for="dropdown">Time of day:</label><br>
+                            <select id="time" name="time" multiple>
+                                <option value="Morning">Morning</option>
+                                <option value="Afternoon">Afternoon</option>
+                                <option value="Evening">Evening</option>
+                            </select><br>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="right">
+                    <label for="size">I am comfortable with sizes:</label><br>
+                    <span id="size">
+                        <label for="small">Small (0-15 lbs)</label>
+                        <input type="checkbox" id="small" name="small">
+
+                        <label for="med">Medium (16-40 lbs)</label>
+                        <input type="checkbox" id="med" name="mid">
+
+                        <label for="large">Large (40+ lbs)</label>
+                        <input type="checkbox" id="large" name="large">
+                    </span>
+                    <br><br>
+                    <label for="type">I want to sit:</label><br>
+                    <span id="type">
+                        <label for="dog">Dog</label>
+                        <input type="checkbox" id="dog" name="dog">
+
+                        <label for="cat">Cat</label>
+                        <input type="checkbox" id="cat" name="cat"><br>
+
+                        <label for="bird">Bird</label>
+                        <input type="checkbox" id="bird" name="bird">
+
+                        <label for="sa">Small animal</label>
+                        <input type="checkbox" id="sa" name="sa"><br>
+
+                        <label for="liz">Lizard</label>
+                        <input type="checkbox" id="liz" name="liz">
+                    </span>
+
+                </div>
+
+                <input id="submit" type="submit" value="Submit">
+            </form>
+
         </div>
+
     </div>
 
-    
+
     <div class="text-content two-cols">
         <div>
             <h3>Are you a pet owner?</h3>
         </div>
         <div>
-            <p class="right">Whether you're at work for a few hours or on a two week vacation, 
-                we have the services you need. Pets are our family, so we only hire trustworthy 
+            <p class="right">Whether you're at work for a few hours or on a two week vacation,
+                we have the services you need. Pets are our family, so we only hire trustworthy
                 animal lovers to care for yours. </p>
             <a href="./customer.html">
                 <button class="btn">Find a Sitter</button>
@@ -44,9 +115,10 @@
         </div>
     </div>
 
-    
-    
+
+
 
 
 </body>
+
 </html>
