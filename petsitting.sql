@@ -1,7 +1,7 @@
 CREATE TABLE Animals (
 	PetID CHAR(9) PRIMARY KEY,
 	Name VARCHAR(20) NOT NULL,
-	Owner CHAR(5) NOT NULL REFERENCES Customers ON DELETE CASCADE,
+	Owner SERIAL NOT NULL REFERENCES Customers ON DELETE CASCADE,
 	Weight INT,
 	Gender CHAR(1),
 	Age INT,
@@ -20,24 +20,24 @@ CREATE TABLE Reptile (
 CREATE TABLE Cats (
 	PetID CHAR(9) PRIMARY KEY REFERENCES Animals ON DELETE CASCADE,
 	IsVaccinated CHAR(1),
-    IsNeutered CHAR(1),
-    IsMicrochipped CHAR(1),
-    IsFriendly_w_dogs CHAR(1),
-    IsFriendly_w_cats CHAR(1),
-    IsFriendly_w_kids CHAR(1),
-    EnergyLevels TEXT
+	IsNeutered CHAR(1),
+	IsMicrochipped CHAR(1),
+	IsFriendly_w_dogs CHAR(1),
+	IsFriendly_w_cats CHAR(1),
+	IsFriendly_w_kids CHAR(1),
+	EnergyLevels TEXT
 );
 
 CREATE TABLE Dogs (
 	PetID CHAR(9) PRIMARY KEY REFERENCES Animals ON DELETE CASCADE,
 	IsVaccinated CHAR(1),
-    IsNeutered CHAR(1),
-    IsMicrochipped CHAR(1),
-    IsFriendly_w_dogs CHAR(1),
-    IsFriendly_w_cats CHAR(1),
-    IsFriendly_w_kids CHAR(1),
-    PottyBreak_Schedule TEXT,
-    EnergyLevels TEXT
+    	IsNeutered CHAR(1),
+    	IsMicrochipped CHAR(1),
+    	IsFriendly_w_dogs CHAR(1),
+    	IsFriendly_w_cats CHAR(1),
+    	IsFriendly_w_kids CHAR(1),
+    	PottyBreak_Schedule TEXT,
+    	EnergyLevels TEXT
 );
  
 CREATE TABLE Sitters (
