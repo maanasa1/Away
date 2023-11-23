@@ -41,7 +41,7 @@ CREATE TABLE Dogs (
 );
  
 CREATE TABLE Sitters (
-    user_id SERIAL PRIMARY KEY REFERENCES users,
+    user_id SERIAL PRIMARY KEY REFERENCES Users,
     zipcode CHAR(5),
     available_days VARCHAR(70),
     available_times VARCHAR(30),
@@ -50,7 +50,7 @@ CREATE TABLE Sitters (
 );
 
 CREATE TABLE Customers (
-    user_id CHAR(9) PRIMARY KEY REFERENCES users
+    user_id SERIAL PRIMARY KEY REFERENCES Users
 );
 
 CREATE TABLE Service (
