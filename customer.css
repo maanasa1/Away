@@ -7,7 +7,7 @@
     opacity: 80%;
     width: 70%;
     max-width: 600px;
-    padding: 50px;
+    padding: 30px;
     
     text-align: center;
     background-color: #e1d5bc;
@@ -28,23 +28,20 @@
     text-align: center;
 }
 
-.hero-text_customer .group .label,
-.group .button{
+.hero-text_customer .group .label{
     display: block;
     position: inherit;
     
 }
 
 .hero-text_customer .group .label,
-.hero-text_customer .group .input,
-.hero-text_customer .group .input1
+.hero-text_customer .group .input
 {
     color: #47494a;
 }
 
 .hero-text_customer .group .label,
 .hero-text_customer .group .input,
-.hero-text_customer .group .input1,
 .group .button
 {
     position: relative;
@@ -52,15 +49,15 @@
 
 .group .button {
     color: #ffffff;
-    position: absolute;
+    
     
 }
 
 .hero-text_customer .group .input,
-.hero-text_customer .group .input1,
 .group .button {
-  border: none;
-  padding: 15px 20px;
+  border:#47494a solid;
+  width: 30%;
+  padding: 10px 10px;
   border-radius: 25px;
   background: rgba(255, 255, 255, .1);
 }
@@ -68,15 +65,20 @@
 .hero-text_customer .group .label,
 .hero-text_customer .group .label_inside{
   color: #47494a;
-  font-size: 12px;
+  font-size: 15px;
 
+
+}
+.hero-text_customer .group .label_inside{
+    padding: 5px;
 }
 
 .group .button {
   background: #21414a;
+  width: 35%;
 }
 
 
-
-
-  
+input[type=radio] { 
+    accent-color: #47494a
+}
