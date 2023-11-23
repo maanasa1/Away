@@ -1,7 +1,7 @@
 <?php
 require_once 'includes/config_session.inc.php';
-require_once 'includes/signup_view.inc.php';
-require_once 'includes/login_view.inc.php';
+require_once 'includes/signup/signup_view.inc.php';
+require_once 'includes/login/login_view.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ require_once 'includes/login_view.inc.php';
 
                 <div class="login-form">
                     <div class="sign-in-htm">
-                        <form action="includes/login.inc.php" method="post">
+                        <form action="includes/login/login.inc.php" method="post">
                             <div class="group">
                                 <label for="email" class="label">email</label>
                                 <input id="email" type="email" class="input" name="email" required>
@@ -63,7 +63,7 @@ require_once 'includes/login_view.inc.php';
                     </div>
 
                     <div class="sign-up-htm">
-                        <form action="includes/signup.inc.php" method="post">
+                        <form action="includes/signup/signup.inc.php" method="post">
                             <div class="group">
                                 <label for="email" class="label">Email</label>
                                 <input id="email" type="email" class="input" name="email" required>
