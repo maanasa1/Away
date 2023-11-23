@@ -41,10 +41,12 @@ CREATE TABLE Dogs (
 );
  
 CREATE TABLE Sitters (
-    user_id CHAR(9) PRIMARY KEY REFERENCES users,
-    Address VARCHAR(100),
-    Availability TIME,
-    PhoneNumber CHAR(10)
+    user_id SERIAL PRIMARY KEY REFERENCES users,
+    zipcode CHAR(5),
+    available_days VARCHAR(70),
+    available_times VARCHAR(30),
+    size_pref VARCHAR(60),
+    type_pref VARCHAR(30)
 );
 
 CREATE TABLE Customers (
@@ -58,7 +60,7 @@ CREATE TABLE Service (
     Rate REAL
 );
 
-CREATE TABLE users (
+CREATE TABLE Users (
     user_id SERIAL PRIMARY KEY,
     email VARCHAR(30) NOT NULL,
     pwd VARCHAR(50) NOT NULL,
