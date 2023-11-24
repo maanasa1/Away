@@ -22,7 +22,7 @@ require_once 'includes/sitterdelete/sitterdelete_view.inc.php';
     </div>
 
     <div class="topnav">
-        <a href="./index.php">Home</a>
+        <a href="./index.html">Home</a>
         <a href="./customer.php">For Customers</a>
         <a class="active" href="./sitter.php">For Sitters</a>
         <a href="./login.php">Log In</a>
