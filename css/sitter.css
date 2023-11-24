@@ -1,0 +1,72 @@
+.label, .button {
+    text-transform: uppercase;
+}
+
+.label, .input, .check-text, .multiselect{
+    color: #47494a;
+}
+
+.button {
+    color: #ffffff;
+    cursor: pointer;
+
+}
+
+.input, .button {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 25px;
+
+  background: rgba(255, 255, 255, .1);
+}
+
+.label {
+    font-size: 12px;
+}
+
+.button {
+    background: #21414a;
+}
+
+.input {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.check-text {
+    font-size: 14px;
+    
+}
+
+input[type="checkbox"] {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+
+  
+
+.multiselect {
+    border: none;
+    padding: 5px 15px;
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, .1);
+    overflow: auto;
+}
+
+/* width */
+.multiselect::-webkit-scrollbar {
+    width: 5px;
+}
+  
+/* Track */
+.multiselect::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+   
+/* Handle */
+.multiselect::-webkit-scrollbar-thumb {
+    background: #21414a; 
+    border-radius: 10px;
+}
+  
