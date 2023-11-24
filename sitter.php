@@ -12,6 +12,7 @@ require_once 'includes/sitterdelete/sitterdelete_view.inc.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Away.com</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/sitter.css">
 </head>
 
 
@@ -46,14 +47,14 @@ require_once 'includes/sitterdelete/sitterdelete_view.inc.php';
                 ?>
                 <form id="form" action="includes/sitterregister/sitterregister.inc.php" method="post">
                     <div class="zip-container">
-                        <label for="zipcode">Zipcode:</label><br>
-                        <input type="number" id="zipcode" name="zipcode" required>
+                        <label for="zipcode" class="label">Zipcode:</label><br>
+                        <input id="zipcode" type="number" class="input" name="zipcode" required>
                     </div>
                                 
                     <div class="availability-container">
                         <div class="availability-dropdown">
-                            <label for="dropdown">Availabilty:</label><br>
-                                <select id="days" name="days[]" multiple required>
+                            <label for="dropdown" class="label">Availabilty:</label><br>
+                                <select id="days" class="multiselect" name="days[]" multiple required>
                                     <option value="Monday">Monday</option>
                                     <option value="Tuesday">Tuesday</option>
                                     <option value="Wednesday">Wednesday</option>
@@ -65,8 +66,8 @@ require_once 'includes/sitterdelete/sitterdelete_view.inc.php';
                             </div>
         
                             <div class="availability-dropdown">
-                                <label for="dropdown">Time of day:</label><br>
-                                <select id="time" name="time[]" multiple required>
+                                <label for="dropdown" class="label">Time of day:</label><br>
+                                <select id="time" class="multiselect" name="time[]" multiple required>
                                     <option value="Morning">Morning</option>
                                     <option value="Afternoon">Afternoon</option>
                                     <option value="Evening">Evening</option>
@@ -75,15 +76,15 @@ require_once 'includes/sitterdelete/sitterdelete_view.inc.php';
                         </div>
         
                         <div class="size-container">
-                            <label for="size">I am comfortable with sizes:</label><br>
+                            <label for="size" class="label">I am comfortable with sizes:</label><br>
                             <span id="size">
-                                <label for="small">Small (0-15 lbs)</label>
+                                <label for="small" class="check-text">Small (0-15 lbs)</label>
                                 <input type="checkbox" id="small" name="size_pref[]" value="Small">
         
-                                <label for="med">Medium (16-40 lbs)</label>
+                                <label for="med" class="check-text">Medium (16-40 lbs)</label>
                                 <input type="checkbox" id="med" name="size_pref[]" value="Medium">
         
-                                <label for="large">Large (40+ lbs)</label>
+                                <label for="large" class="check-text">Large (40+ lbs)</label>
                                 <input type="checkbox" id="large" name="size_pref[]" value="Large">
                             </span>
                     </div>
@@ -91,27 +92,27 @@ require_once 'includes/sitterdelete/sitterdelete_view.inc.php';
                     <br> 
 
                     <div class="type-container">
-                        <label for="type">I want to sit:</label><br>
+                        <label for="type" class="label">I want to sit:</label><br>
                         <span id="type">
-                            <label for="dog">Dog</label>
+                            <label for="dog" class="check-text">Dog</label>
                             <input type="checkbox" id="dog" name="type_pref[]" value="Dog">
         
-                            <label for="cat">Cat</label>
+                            <label for="cat" class="check-text">Cat</label>
                             <input type="checkbox" id="cat" name="type_pref[]" value="Cat"> <br>
 
-                            <label for="bird">Bird</label>
+                            <label for="bird" class="check-text">Bird</label>
                             <input type="checkbox" id="bird" name="type_pref[]" value="Bird">
         
-                            <label for="sa">Small animal</label>
+                            <label for="sa" class="check-text">Small animal</label>
                             <input type="checkbox" id="sa" name="type_pref[]" value="Small animal">
         
-                            <label for="liz">Lizard</label>
+                            <label for="liz" class="check-text">Lizard</label>
                             <input type="checkbox" id="liz" name="type_pref[]" value="Lizard">
                         </span>
                     </div>
                                 
                     <br> 
-                        <input id="submit" type="submit" value="Register as a Sitter">
+                        <input id="submit" type="submit" class="button" value="Register as a Sitter">
                     
                 </form>
 
