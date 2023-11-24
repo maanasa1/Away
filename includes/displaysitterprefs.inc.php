@@ -12,7 +12,7 @@ require_once 'sitterdelete/sitterdelete_contr.inc.php';
 ?>
 <div class="text-content two-cols">
     <div>
-        <h3>Already registered?</h3>
+        <h3>Already registered as a sitter?</h3>
     </div>
     
     <div>
@@ -44,7 +44,7 @@ require_once 'sitterdelete/sitterdelete_contr.inc.php';
 
             <br>
             <form action="includes/sitterdelete/sitterdelete.inc.php" method="post">
-                <input type="submit" class="btn" value="Delete Registration">
+                <input type="submit" class="btn" value="Delete Preferences">
             </form>
             <?php 
             check_sitterdelete_errors(); 
@@ -57,55 +57,3 @@ require_once 'sitterdelete/sitterdelete_contr.inc.php';
                 
     </div>
 </div>
-<!-- 
-if (isset($_SESSION["user_id"])) {
-    $user_id = $_SESSION["user_id"];
-
-    if (is_sitter_registered($pdo, $user_id)) {
-        echo '<p>Here are your sitter preferences:</p>';
-
-        echo' 
-        <form action="includes/sitterdelete/sitterdelete.inc.php" method="post">
-            <input type="submit" class="btn" value="Delete Registration">
-        </form>';
-
-    check_sitterdelete_errors(); 
-    } else {
-        echo '<p>You are not registered as a sitter. Use the form above to register now!</p>';
-    }
-
-    
-             
-} -->
-
-
-<!-- 
-    // $user_id = $_SESSION["user_id"];
-
-    
-    // require_once 'sitterdelete_model.inc.php';
-    // require_once 'sitterdelete_contr.inc.php';
-
-    // if (is_sitter_registered($pdo, $user_id)) {
-    //     echo '<p>Here are your sitter preferences:</p>';
-    //     require_once '../dbh.inc.php';
-        
-    //     $query = "SELECT * FROM Sitters WHERE user_id = :user_id;";
-    //     $stmt = $pdo->prepare($query); //prevents SQL injection
-    //     $stmt->bindParam(":user_id", $user_id);
-    //     $stmt->execute();
-    
-    //     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-
-    //     $pdo = null;
-    //     $stmt = null;
-
-        
-
-    // } else {
-    //     echo '<p>You are not registered as a sitter. Use the form above to register now!</p>';
-    // }
-    
-    
- -->
