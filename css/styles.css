@@ -33,6 +33,23 @@ body {
     font-family: 'Segoe UI', sans-serif;
 }
 
+table, th, td {
+    border: 1px solid #21414a;
+    border-collapse: collapse;
+    padding: 3px;
+
+} 
+
+
+
+.form-success {
+    color: #677639;
+  }
+  
+.form-error {
+    color: #c17b6d;
+    line-height: 0.5;
+}
 
 
 .homepage .topnav {
