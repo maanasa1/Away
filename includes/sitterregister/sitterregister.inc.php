@@ -2,7 +2,6 @@
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     require_once '../config_session.inc.php';
-    //need an error for is userid is not set
     $user_id = $_SESSION["user_id"];
     $zipcode = $_POST["zipcode"];
     $available_days = $_POST["days"];
@@ -23,6 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
         if (is_zipcode_invalid($zipcode)) {
             $errors["invalid_zipcode"] = "Invalid zipcode";
+        }
+        if (is_sitter_registered($pdo, $user_id)) {
+            $errors["sitter_registered"] = "Already registered as a sitter";
         }
 
         if ($errors) {
@@ -48,22 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());
     }
-
-    // echo $user_id;
-    // echo $zipcode;
-    // echo strlen($zipcode);
-    // foreach ($available_days as $day) {
-    //     echo $day;
-    // }
-    // foreach ($available_times as $time) {
-    //     echo $time;
-    // }
-    // foreach ($size_pref as $size) {
-    //     echo $size;
-    // }
-    // foreach ($type_pref as $type) {
-    //     echo $type;
-    // }
     
 
 }

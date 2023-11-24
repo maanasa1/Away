@@ -18,6 +18,14 @@ function is_zipcode_invalid(string $zipcode) {
     }
 }
 
+function is_sitter_registered(object $pdo, string $user_id) {
+    if (get_sitter($pdo, $user_id)) {
+        return true;
+    } else {
+        return false;
+    } 
+}
+
 function create_sitter(object $pdo, int $user_id, int $zipcode, array $available_days, array $available_times, array $size_pref, array $type_pref) {
     set_sitter($pdo, $user_id, $zipcode, $available_days, $available_times, $size_pref, $type_pref);
 }

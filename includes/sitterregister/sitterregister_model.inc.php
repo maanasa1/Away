@@ -19,3 +19,13 @@ function set_sitter(object $pdo, int $user_id, int $zipcode, array $available_da
     $stmt->execute();
 
 }
+
+function get_sitter(object $pdo, string $user_id) {
+    $query = "SELECT user_id FROM Sitters WHERE user_id = :user_id;";
+    $stmt = $pdo->prepare($query); //prevents SQL injection
+    $stmt->bindParam(":user_id", $user_id);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
