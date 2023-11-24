@@ -1,6 +1,7 @@
 <?php
 require_once 'includes/config_session.inc.php';
 require_once 'includes/sitterregister/sitterregister_view.inc.php';
+require_once 'includes/sitterdelete/sitterdelete_view.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -34,106 +35,108 @@ require_once 'includes/sitterregister/sitterregister_view.inc.php';
             <h3>Interested in becoming a sitter?</h3>
 
             <?php 
-            if(isset($_SESSION["user_id"])) {?>
+            if(!isset($_SESSION["user_id"])) {?>
+                <a href="./login.php">
+                    <button class="btn">Log In to Register as a Sitter</button>
+                </a>
 
-            <form id="form" action="includes/sitterregister/sitterregister.inc.php" method="post">
-
-                <div id="left">
-                    <label for="zipcode">Zipcode:</label><br>
-                    <input type="number" id="zipcode" name="zipcode">
-
+                
+            <?php 
+            } else { 
+                ?>
+                <form id="form" action="includes/sitterregister/sitterregister.inc.php" method="post">
+                    <div class="zip-container">
+                        <label for="zipcode">Zipcode:</label><br>
+                        <input type="number" id="zipcode" name="zipcode" required>
+                    </div>
+                                
                     <div class="availability-container">
                         <div class="availability-dropdown">
                             <label for="dropdown">Availabilty:</label><br>
-                            <select id="days" name="days[]" multiple>
-                                <option value="Monday">Monday</option>
-                                <option value="Tuesday">Tuesday</option>
-                                <option value="Wednesday">Wednesday</option>
-                                <option value="Thursday">Thursday</option>
-                                <option value="Friday">Friday</option>
-                                <option value="Saturday">Saturday</option>
-                                <option value="Sunday">Sunday</option>
-                            </select><br>
+                                <select id="days" name="days[]" multiple required>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Saturday">Saturday</option>
+                                    <option value="Sunday">Sunday</option>
+                                </select><br>
+                            </div>
+        
+                            <div class="availability-dropdown">
+                                <label for="dropdown">Time of day:</label><br>
+                                <select id="time" name="time[]" multiple required>
+                                    <option value="Morning">Morning</option>
+                                    <option value="Afternoon">Afternoon</option>
+                                    <option value="Evening">Evening</option>
+                                </select><br>
+                            </div>
                         </div>
-
-                        <div class="availability-dropdown">
-                            <label for="dropdown">Time of day:</label><br>
-                            <select id="time" name="time[]" multiple>
-                                <option value="Morning">Morning</option>
-                                <option value="Afternoon">Afternoon</option>
-                                <option value="Evening">Evening</option>
-                            </select><br>
-                        </div>
+        
+                        <div class="size-container">
+                            <label for="size">I am comfortable with sizes:</label><br>
+                            <span id="size">
+                                <label for="small">Small (0-15 lbs)</label>
+                                <input type="checkbox" id="small" name="size_pref[]" value="Small">
+        
+                                <label for="med">Medium (16-40 lbs)</label>
+                                <input type="checkbox" id="med" name="size_pref[]" value="Medium">
+        
+                                <label for="large">Large (40+ lbs)</label>
+                                <input type="checkbox" id="large" name="size_pref[]" value="Large">
+                            </span>
                     </div>
-                </div>
+                                
+                    <br> 
+
+                    <div class="type-container">
+                        <label for="type">I want to sit:</label><br>
+                        <span id="type">
+                            <label for="dog">Dog</label>
+                            <input type="checkbox" id="dog" name="type_pref[]" value="Dog">
+        
+                            <label for="cat">Cat</label>
+                            <input type="checkbox" id="cat" name="type_pref[]" value="Cat"> <br>
+
+                            <label for="bird">Bird</label>
+                            <input type="checkbox" id="bird" name="type_pref[]" value="Bird">
+        
+                            <label for="sa">Small animal</label>
+                            <input type="checkbox" id="sa" name="type_pref[]" value="Small animal">
+        
+                            <label for="liz">Lizard</label>
+                            <input type="checkbox" id="liz" name="type_pref[]" value="Lizard">
+                        </span>
+                    </div>
+                                
+                    <br> 
+                        <input id="submit" type="submit" value="Register as a Sitter">
+                    
+                </form>
 
 
-                <div id="right">
-                    <label for="size">I am comfortable with sizes:</label><br>
-                    <span id="size">
-                        <label for="small">Small (0-15 lbs)</label>
-                        <input type="checkbox" id="small" name="size_pref[]" value="Small">
-
-                        <label for="med">Medium (16-40 lbs)</label>
-                        <input type="checkbox" id="med" name="size_pref[]" value="Medium">
-
-                        <label for="large">Large (40+ lbs)</label>
-                        <input type="checkbox" id="large" name="size_pref[]" value="Large">
-                    </span>
-                    <br><br>
-                    <label for="type">I want to sit:</label><br>
-                    <span id="type">
-                        <label for="dog">Dog</label>
-                        <input type="checkbox" id="dog" name="type_pref[]" value="Dog">
-
-                        <label for="cat">Cat</label>
-                        <input type="checkbox" id="cat" name="type_pref[]" value="Cat"> <br>
-
-                        <label for="bird">Bird</label>
-                        <input type="checkbox" id="bird" name="type_pref[]" value="Bird">
-
-                        <label for="sa">Small animal</label>
-                        <input type="checkbox" id="sa" name="type_pref[]" value="Small animal">
-
-                        <label for="liz">Lizard</label>
-                        <input type="checkbox" id="liz" name="type_pref[]" value="Lizard">
-                    </span>
-
-                </div>
-
-                <br>
-
-                <input id="submit" type="submit" value="Submit">
-            </form>
-
-
-
-            <?php 
-            check_sitterregister_errors();
-            } else { ?>
-            <a href="./login.php">
-                <button class="btn">Log In to Register as a Sitter</button>
-            </a>
-
-
-                <?php } ?>
-
+            <?php    
+                check_sitterregister_errors(); 
+            } ?>
 
         </div>
-
     </div>
+
+    <?php 
+    if(isset($_SESSION["user_id"])) {
+        include ('includes/displaysitterprefs.inc.php');
+    }
+    ?>
 
 
     <div class="text-content two-cols">
         <div>
-            <h3>Are you a pet owner?</h3>
+            <h3>Want to view your bookings?</h3>
         </div>
         <div>
-            <p class="right">Whether you're at work for a few hours or on a two week vacation,
-                we have the services you need. Pets are our family, so we only hire trustworthy
-                animal lovers to care for yours. </p>
-            <a href="./customer.php">
-                <button class="btn">Find a Sitter</button>
+            <a href="./login.php">
+                <button class="btn">Go to your Account</button>
             </a>
         </div>
     </div>
