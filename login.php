@@ -21,7 +21,7 @@ require_once 'includes/login/login_view.inc.php';
     </div>
 
     <div class="topnav">
-        <a href="./index.html">Home</a>
+        <a href="./index.php">Home</a>
         <a href="./customer.php">For Customers</a>
         <a href="./sitter.php">For Sitters</a>
         <a class ="active" href="./login.php">Log In</a>
