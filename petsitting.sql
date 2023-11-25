@@ -40,7 +40,6 @@ CREATE TABLE Dogs (
 CREATE TABLE Sitters (
     user_id SERIAL PRIMARY KEY REFERENCES users ON DELETE CASCADE,
     zipcode CHAR(5),
-    rate INT,
     available_days VARCHAR(70),
     available_times VARCHAR(30),
     size_pref VARCHAR(60),
@@ -57,7 +56,7 @@ CREATE TABLE Service (
     booker_id SERIAL REFERENCES Customers ON DELETE CASCADE,
     sitter_id SERIAL REFERENCES Sitters ON DELETE CASCADE,
     pet SERIAL REFERENCES Animals ON DELETE CASCADE,
-    serivice_date DATE,
+    service_date DATE,
     start_time TIME(0), 
     end_time TIME(0), 
     rate REAL
@@ -65,9 +64,15 @@ CREATE TABLE Service (
 
 CREATE TABLE Users (
     user_id SERIAL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
+	name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     pwd VARCHAR(50) NOT NULL,
     user_type VARCHAR(10)
 );
 
+CREATE VIEW BookingDisplay AS
+SELECT service_id, owner_name, booker_id, sitter_name, sitter_id, pet_name, service_date, start_time, end_time, S.rate AS price
+FROM Service S
+NATURAL JOIN (SELECT service_id, U.name as owner_name FROM Service S JOIN Users U ON S.booker_id = U.user_id)
+NATURAL JOIN (SELECT service_id, U.name as sitter_name FROM Service S JOIN Users U ON S.sitter_id = U.user_id)
+NATURAL JOIN (SELECT service_id, A.name as pet_name FROM Service S JOIN Animals A ON S.pet = A.animal_id);
