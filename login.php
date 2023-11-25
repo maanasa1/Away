@@ -124,4 +124,16 @@ require_once 'includes/login/login_view.inc.php';
 
         </div>    
     </div>
+
+    <?php
+    if (isset($_SESSION["user_id"])) { ?>
+        <div class="text-content two-cols">
+            <div>
+                <h3>Your Bookings:</h3>
+            </div>
+            <div>
+                <?php include('includes/displaybookings.inc.php');?>
+            </div>
+        </div>
+    <?php }?>
 </body>

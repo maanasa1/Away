@@ -46,12 +46,21 @@ require_once 'includes/sitterdelete/sitterdelete_view.inc.php';
             } else {
                 ?>
                 <form id="form" action="includes/sitterregister/sitterregister.inc.php" method="post">
-                    <div class="zip-container">
-                        <label for="zipcode" class="label">Zipcode:</label><br>
-                        <input id="zipcode" type="number" class="input" name="zipcode" required>
-                    </div>
+                    <div class="dual-input">
+                        <div class="zip-container">
+                            <label for="zipcode" class="label">Zipcode:</label><br>
+                            <input id="zipcode" type="number" class="input" name="zipcode" required>
+                        </div>
 
-                    <div class="availability-container">
+                        <div class="rate-container">
+                            <label for="rate" class="label">Hourly Rate:</label><br>
+                            <input id="rate" type="number" class="input" name="rate" required>
+                        </div>
+
+                    </div>
+                    
+
+                    <div class="dual-input">
                         <div class="availability-dropdown">
                             <label for="dropdown" class="label">Availabilty:</label><br>
                             <select id="days" class="multiselect" name="days[]" multiple required>

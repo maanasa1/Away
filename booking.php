@@ -10,6 +10,7 @@ require_once 'includes/booking/booking_view.inc.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Away.com</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/booking.css">
 </head>
 
 
@@ -81,6 +82,7 @@ require_once 'includes/booking/booking_view.inc.php';
                     <label for="end-time" class="label">End Time:</label><br>
                     <input id="end-time" type="time" class="input" name="end_time" required>
 
+                    <br>
                     <br>
 
                     <input id="submit" type="submit" class="button" value="Create a Booking">
