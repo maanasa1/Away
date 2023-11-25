@@ -41,7 +41,7 @@ CREATE TABLE Dogs (
 );
  
 CREATE TABLE Sitters (
-    user_id SERIAL PRIMARY KEY REFERENCES Users,
+    user_id SERIAL PRIMARY KEY REFERENCES Users ON DELETE CASCADE,
     zipcode CHAR(5),
     available_days VARCHAR(70),
     available_times VARCHAR(30),
@@ -54,10 +54,14 @@ CREATE TABLE Customers (
 );
 
 CREATE TABLE Service (
-    ServiceID CHAR(9) PRIMARY KEY,
-    StartDate DATE,
-    EndDate DATE,
-    Rate REAL
+    service_id SERIAL PRIMARY KEY,
+    booker_id SERIAL REFERENCES Customers ON DELETE CASCADE,
+    sitter_id SERIAL REFERENCES Sitters ON DELETE CASCADE,
+    pet SERIAL REFERENCES Animals ON DELETE CASCADE,
+    serivice_date DATE,
+    start_time TIME(0), 
+    end_time TIME(0), 
+    rate REAL
 );
 
 CREATE TABLE Users (
