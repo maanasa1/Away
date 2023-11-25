@@ -26,6 +26,7 @@ require_once 'sitterdelete/sitterdelete_contr.inc.php';
             <table>
                 <tr>
                     <th>Zipcode</th>
+                    <th>Rate</th>
                     <th>Available Days</th>
                     <th>Available Times</th>
                     <th>Pet Size</th>
@@ -35,6 +36,7 @@ require_once 'sitterdelete/sitterdelete_contr.inc.php';
                 <tr>
                     <?php $prefs = get_sitter_prefs($pdo, $user_id); ?>
                     <td><?php echo $prefs["zipcode"]; ?></td>
+                    <td><?php echo $prefs["rate"]; ?></td>
                     <td><?php echo $prefs["available_days"]; ?></td>
                     <td><?php echo $prefs["available_times"]; ?></td>
                     <td><?php echo $prefs["size_pref"]; ?></td>

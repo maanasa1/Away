@@ -4,6 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     require_once '../config_session.inc.php';
     $user_id = $_SESSION["user_id"];
     $zipcode = $_POST["zipcode"];
+    $rate = $_POST["rate"];
     $available_days = $_POST["days"];
     $available_times = $_POST["time"];
     $size_pref = $_POST["size_pref"];
@@ -17,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errors = [];
 
         //need an error if already registered 
-        if (is_input_empty($zipcode, $available_days, $available_times, $size_pref, $type_pref)) {
+        if (is_input_empty($zipcode, $rate, $available_days, $available_times, $size_pref, $type_pref)) {
             $errors["empty_input"] = "Fill in all fields";
         }
         if (is_zipcode_invalid($zipcode)) {
@@ -36,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
 
-        create_sitter($pdo, $user_id, $zipcode, $available_days, $available_times, $size_pref, $type_pref);
+        create_sitter($pdo, $user_id, $zipcode, $rate, $available_days, $available_times, $size_pref, $type_pref);
 
         header("Location: ../../sitter.php?registration=success");
 

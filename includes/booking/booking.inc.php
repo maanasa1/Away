@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         require_once 'booking_contr.inc.php';
         $pet_id = get_pet_id($pdo, $pet_name);
         
-
         $errors = [];
 
         if (!is_sitter_registered($pdo, $sitter_id)) {
@@ -54,8 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             die();
         }
 
-
-        create_booking($pdo, $user_id, $sitter_id, $pet_id, $service_date, $start_time, $end_time);
+        $cost = calc_service_cost($pdo, $sitter_id, $start_time, $end_time);
+        create_booking($pdo, $user_id, $sitter_id, $pet_id, $service_date, $start_time, $end_time, $cost);
 
         header("Location: ../../booking.php?booking=success");
 

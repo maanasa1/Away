@@ -61,8 +61,18 @@ function get_sitter_prefs(object $pdo, string $sitter_id) {
     return $result;
 }
 
-function create_booking(object $pdo, string $user_id, string $sitter_id, string $pet_id, string $service_date, string $start_time, string $end_time) {
-    $query = "INSERT INTO Service (booker_id, sitter_id, pet, serivice_date, start_time, end_time) VALUES (:user_id, :sitter_id, :pet_id, :service_date, :start_time, :end_time);";
+function get_sitter_rate(object $pdo, string $sitter_id) {
+    $query = "SELECT rate FROM Sitters WHERE user_id = :sitter_id";
+    $stmt = $pdo->prepare($query); //prevents SQL injection
+    $stmt->bindParam(":sitter_id", $sitter_id);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result["rate"];
+}
+
+function create_booking(object $pdo, string $user_id, string $sitter_id, string $pet_id, string $service_date, string $start_time, string $end_time, string $cost) {
+    $query = "INSERT INTO Service (booker_id, sitter_id, pet, serivice_date, start_time, end_time, rate) VALUES (:user_id, :sitter_id, :pet_id, :service_date, :start_time, :end_time, :cost);";
     $stmt = $pdo->prepare($query); //prevents SQL injection
     $stmt->bindParam(":user_id", $user_id);
     $stmt->bindParam(":sitter_id", $sitter_id);
@@ -70,5 +80,6 @@ function create_booking(object $pdo, string $user_id, string $sitter_id, string 
     $stmt->bindParam(":service_date", $service_date);
     $stmt->bindParam(":start_time", $start_time);
     $stmt->bindParam(":end_time", $end_time);
+    $stmt->bindParam(":cost", $cost);
     $stmt->execute();
 }

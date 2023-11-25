@@ -68,3 +68,13 @@ function size_in_sitterprefs(object $pdo, string $pet_id, string $sitter_id) {
 
 
 }
+
+function calc_service_cost(object $pdo, string $sitter_id, string $start_time, string $end_time) {
+    $sitter_rate = get_sitter_rate($pdo, $sitter_id);
+    $hours = substr($end_time,0,2) - substr($start_time,0,2);
+    $mins = substr($end_time,3,2) + (60 - substr($start_time,3,2));
+    $length = $hours + ($mins/60  - 1);
+    $cost = $sitter_rate * $length;
+
+    return $cost;
+}
