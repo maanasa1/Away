@@ -40,6 +40,7 @@ CREATE TABLE Dogs (
 CREATE TABLE Sitters (
     user_id SERIAL PRIMARY KEY REFERENCES users ON DELETE CASCADE,
     zipcode CHAR(5),
+    rate INT,
     available_days VARCHAR(70),
     available_times VARCHAR(30),
     size_pref VARCHAR(60),
@@ -64,7 +65,7 @@ CREATE TABLE Service (
 
 CREATE TABLE Users (
     user_id SERIAL PRIMARY KEY,
-	name VARCHAR(50) NOT NULL,
+    name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     pwd VARCHAR(50) NOT NULL,
     user_type VARCHAR(10)
