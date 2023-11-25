@@ -44,6 +44,7 @@ table, th, td {
 
 .form-success {
     color: #677639;
+    line-height: 0.5;
   }
   
 .form-error {
