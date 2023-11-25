@@ -60,7 +60,7 @@ function size_in_sitterprefs(object $pdo, string $pet_id, string $sitter_id) {
         $size = "Large";
     }
 
-    if ($pref["size_pref"] == $size) {
+    if (str_contains($pref["size_pref"], $size)) {
         return true;
     } else {
         return false;
