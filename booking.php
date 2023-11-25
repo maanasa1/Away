@@ -1,7 +1,18 @@
 <?php
 require_once 'includes/config_session.inc.php';
 require_once 'includes/booking/booking_view.inc.php';
+
+// booking.php
+$availableSitters = [];
+
+// Check if there are search results in the session variable
+if (isset($_SESSION['availableSitters'])) {
+    $availableSitters = $_SESSION['availableSitters'];
+    // Clear the session variable to avoid displaying results on subsequent page loads
+    unset($_SESSION['availableSitters']);
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,13 +42,125 @@ require_once 'includes/booking/booking_view.inc.php';
 <body class="homepage">
     
     <div class="text-content two-cols">
+ 
         <div>
-            <h3>Search for Sitters</h3>
+            <h3>Discover sitters near you:</h3>
         </div>
         <div>
-            Search stuff here
+            <form class ="form" action="includes/findsitter/sitterfind.inc.php" method="post">
+
+                <div class="zip-container">
+                    <label for="zipcode" class="label">Zipcode:</label><br>
+                    <input id="zipcode" type="number" class="input" name="zipcode" required>
+                </div>
+
+                <div class="availability-container">
+                    <div class="availability-dropdown">
+                        <label for="dropdown" class="label">Availabilty:</label><br>
+                            <select id="days" class="multiselect" name="days[]" multiple required>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
+                            </select><br>
+                        </div>
+        
+                        <div class="availability-dropdown">
+                            <label for="dropdown" class="label">Time of day:</label><br>
+                            <select id="time" class="multiselect" name="time[]" multiple required>
+                                <option value="Morning">Morning</option>
+                                <option value="Afternoon">Afternoon</option>
+                                <option value="Evening">Evening</option>
+                            </select><br>
+                        </div>
+                    </div>
+                
+        
+                <div class="size-container">
+                    <label for="size" class="label">I am comfortable with sizes:</label><br>
+                    <span id="size">
+                        <label for="small" class="check-text">Small (0-15 lbs)</label>
+                        <input type="checkbox" id="small" name="size_pref[]" value="Small">
+
+                        <label for="med" class="check-text">Medium (16-40 lbs)</label>
+                        <input type="checkbox" id="med" name="size_pref[]" value="Medium">
+
+                        <label for="large" class="check-text">Large (40+ lbs)</label>
+                        <input type="checkbox" id="large" name="size_pref[]" value="Large">
+                    </span>
+                </div>
+                                
+        
+
+                <div class="type-container">
+                    <label for="type" class="label">I want to sit:</label><br>
+                    <span id="type">
+                        <label for="dog" class="check-text">Dog</label>
+                        <input type="checkbox" id="dog" name="type_pref[]" value="Dog">
+    
+                        <label for="cat" class="check-text">Cat</label>
+                        <input type="checkbox" id="cat" name="type_pref[]" value="Cat"> <br>
+
+                        <label for="bird" class="check-text">Bird</label>
+                        <input type="checkbox" id="bird" name="type_pref[]" value="Bird">
+    
+                        <label for="sa" class="check-text">Small animal</label>
+                        <input type="checkbox" id="sa" name="type_pref[]" value="Small animal">
+    
+                        <label for="liz" class="check-text">Lizard</label>
+                        <input type="checkbox" id="liz" name="type_pref[]" value="Lizard">
+                    </span>
+                </div>
+                            
+                <div class="group">
+                    <input type="submit" value="Find sitters" class="button">
+                </div>
+            </div>
+
+            </form>
             
         </div>
+    </div>
+
+    <div class="text-content two-cols">  
+        <?php
+
+        // Assuming you have $availableSitters from the controller
+        
+        if (!empty($availableSitters)) {
+            echo "<h3>Available Sitters</h3>";
+        
+            echo "<table>";
+            echo "<tr>";
+            echo "<th>Sitter ID</th>";
+            echo "<th>Zipcode</th>";
+            echo "<th>Available Days</th>";
+            echo "<th>Available Times</th>";
+            echo "<th>Size Preference</th>";
+            echo "<th>Type Preference</th>";
+            echo "</tr>";
+        
+            foreach ($availableSitters as $sitter) {
+                echo "<tr>";
+                echo "<td>{$sitter['user_id']}</td>";
+                echo "<td>{$sitter['zipcode']}</td>";
+                echo "<td>{$sitter['available_days']}</td>";
+                echo "<td>{$sitter['available_times']}</td>";
+                echo "<td>{$sitter['size_pref']}</td>";
+                echo "<td>{$sitter['type_pref']}</td>";
+                echo "</tr>";
+            }
+        
+            echo "</table>";
+        } else {
+            echo "<p>No available sitters found.</p>";
+        }
+        
+        ?>
+
     </div>
 
     <div class="text-content two-cols">
