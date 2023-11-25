@@ -19,6 +19,7 @@ function get_pet(object $pdo, string $user_id, string $name)
     $query = "SELECT owner FROM Animals WHERE owner = :user_id and name = :name;";
     $stmt = $pdo->prepare($query); //prevents SQL injection
     $stmt->bindParam(":user_id", $user_id);
+    $stmt->bindParam(":name", $name);
     $stmt->execute();
 
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
