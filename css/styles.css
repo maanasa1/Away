@@ -137,13 +137,3 @@ table, th, td {
     background-color: #f3ecdd;
 }
 
-.availability-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.availability-dropdown {
-    width: 48%;
-    margin-bottom: 10px;
-}
