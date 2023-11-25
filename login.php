@@ -65,6 +65,11 @@ require_once 'includes/login/login_view.inc.php';
                     <div class="sign-up-htm">
                         <form action="includes/signup/signup.inc.php" method="post">
                             <div class="group">
+                                <label for="name" class="label">Full Name</label>
+                                <input id="name" type="text" class="input" name="name" required>
+                            </div>
+
+                            <div class="group">
                                 <label for="email" class="label">Email</label>
                                 <input id="email" type="email" class="input" name="email" required>
                             </div>

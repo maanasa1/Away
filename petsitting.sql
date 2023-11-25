@@ -1,14 +1,11 @@
 CREATE TABLE Animals (
-	PetID CHAR(9) PRIMARY KEY,
-	Name VARCHAR(20) NOT NULL,
-	Owner SERIAL NOT NULL REFERENCES Customers ON DELETE CASCADE,
-	Weight INT,
-	Gender CHAR(1),
-	Age INT,
-	Breed VARCHAR(20),
-	FeedingSchedule TEXT,
-	VetInfo TEXT,
-	MedsSchedule TEXT
+	animal_id SERIAL PRIMARY KEY,
+	name VARCHAR(20) NOT NULL,
+	owner SERIAL NOT NULL REFERENCES Customers ON DELETE CASCADE,
+	weight INT,
+	animal_type VARCHAR(15),
+	age INT,
+	weight INT
 );
 
 CREATE TABLE Reptile (
@@ -41,7 +38,7 @@ CREATE TABLE Dogs (
 );
  
 CREATE TABLE Sitters (
-    user_id SERIAL PRIMARY KEY REFERENCES Users ON DELETE CASCADE,
+    user_id SERIAL PRIMARY KEY REFERENCES users ON DELETE CASCADE,
     zipcode CHAR(5),
     available_days VARCHAR(70),
     available_times VARCHAR(30),
@@ -50,7 +47,8 @@ CREATE TABLE Sitters (
 );
 
 CREATE TABLE Customers (
-    user_id SERIAL PRIMARY KEY REFERENCES Users
+    user_id SERIAL PRIMARY KEY REFERENCES Users ON DELETE CASCADE
+	email VARCHAR(50) NOT NULL 
 );
 
 CREATE TABLE Service (
@@ -66,7 +64,8 @@ CREATE TABLE Service (
 
 CREATE TABLE Users (
     user_id SERIAL PRIMARY KEY,
-    email VARCHAR(30) NOT NULL,
+	name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     pwd VARCHAR(50) NOT NULL,
     user_type VARCHAR(10)
 );
