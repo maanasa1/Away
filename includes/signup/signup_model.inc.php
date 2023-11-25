@@ -26,10 +26,11 @@ function get_email(object $pdo, string $email)
     return $result;
 }
 
-function set_user(object $pdo, string $pwd, string $email, string $user_type)
+function set_user(object $pdo, string $name, string $email, string $pwd, string $user_type)
 {
-    $query = "INSERT INTO users (email, pwd, user_type) VALUES (:email, :pwd, :user_type);";
+    $query = "INSERT INTO users (name, email, pwd, user_type) VALUES (:name, :email, :pwd, :user_type);";
     $stmt = $pdo->prepare($query); //prevents SQL injection
+    $stmt->bindParam(":name", $name);
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":pwd", $pwd);
     $stmt->bindParam(":user_type", $user_type);
