@@ -1,9 +1,5 @@
 <?php
 require_once 'config_session.inc.php';
-require_once 'dbh.inc.php';
-
-require_once 'sitterdelete/sitterdelete_model.inc.php';
-require_once 'sitterdelete/sitterdelete_contr.inc.php';
 ?>
 
 
@@ -27,15 +23,27 @@ require_once 'sitterdelete/sitterdelete_contr.inc.php';
                     <th>Price</th>
                 </tr>
 
-                <!-- <tr>
-                    <?php $prefs = get_sitter_prefs($pdo, $user_id); ?>
-                    <td><?php echo $prefs["zipcode"]; ?></td>
-                    <td><?php echo $prefs["rate"]; ?></td>
-                    <td><?php echo $prefs["available_days"]; ?></td>
-                    <td><?php echo $prefs["available_times"]; ?></td>
-                    <td><?php echo $prefs["size_pref"]; ?></td>
-                    <td><?php echo $prefs["type_pref"]; ?></td>
-                </tr> -->
+                <?php 
+                
+                require_once 'includes/booking/booking_view.inc.php';    
+                $bookings = find_user_bookings();
+                
+                foreach ($bookings as $booking) { ?>
+                    <tr>
+                        <td><?php echo $booking["service_id"]; ?></td>
+                        <td><?php echo $booking["owner_name"]; ?></td>
+                        <td><?php echo $booking["sitter_name"]; ?></td>
+                        <td><?php echo $booking["pet_name"]; ?></td>
+                        <td><?php echo $booking["service_date"]; ?></td>
+                        <td><?php echo $booking["start_time"]; ?></td>
+                        <td><?php echo $booking["end_time"]; ?></td>
+                        <td><?php echo $booking["price"]; ?></td>
+                        
+                    </tr>
+                    
+
+                <?php }?>
+                
             </table>
 
  

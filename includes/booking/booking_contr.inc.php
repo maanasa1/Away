@@ -78,3 +78,4 @@ function calc_service_cost(object $pdo, string $sitter_id, string $start_time, s
 
     return $cost;
 }
+

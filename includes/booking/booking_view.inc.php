@@ -29,4 +29,13 @@ function pet_select() {
     }
 }
 
+function find_user_bookings() {
+    require_once 'includes/config_session.inc.php';
+    require_once 'includes/dbh.inc.php';
+    require_once 'includes/booking/booking_model.inc.php';
+    $user_id = $_SESSION["user_id"];
+    
+    $bookings = get_bookings($pdo, $user_id);
+    return $bookings;
 
+}
