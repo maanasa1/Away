@@ -116,6 +116,17 @@ require_once 'includes/petregister/petregister_view.inc.php';
         </div>
     </div>
 
+    <div class="text-content two-cols">
+        <div>
+            <h3>Want to create a booking?</h3>
+        </div>
+        <div>
+            <a href="./booking.php">
+                <button class="btn">Go to Bookings</button>
+            </a>
+        </div>
+    </div>
+
     <?php
     if (isset($_SESSION["user_id"])) {
         include('includes/displaypets.inc.php');
