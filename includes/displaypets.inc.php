@@ -30,23 +30,29 @@ require_once 'petdelete/petdelete_view.inc.php';
                     <th>Weight</th>
                 </tr>
 
-                <?php $pets = get_pets($pdo, $user_id); ?>
-                <tr>
-                    <td>
-                        <?php echo $pets["name"]; ?>
-                    </td>
-                    <td>
-                        <?php echo $pets["age"]; ?>
-                    </td>
-                    <td>
-                        <?php echo $pets["weight"]; ?>
-                    </td>
-                </tr>
+                <?php
+                $pets = get_pets($pdo, $user_id);
+                foreach ($pets as $pet) { ?>
+                    <tr>
+                        <td>
+                            <?php echo $pet["name"]; ?>
+                        </td>
+                        <td>
+                            <?php echo $pet["age"]; ?>
+                        </td>
+                        <td>
+                            <?php echo $pet["weight"]; ?>
+                        </td>
+                    </tr>
+                <?php } ?>
             </table>
 
             <br>
             <form action="includes/petdelete/petdelete.inc.php" method="post">
-                <input type="submit" class="btn" value="Delete Preferences">
+                <label for="name">Enter the name of the pet to delete:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <input type="submit" class="btn" value="Delete Pet">
             </form>
             <?php
             check_petdelete_errors();
