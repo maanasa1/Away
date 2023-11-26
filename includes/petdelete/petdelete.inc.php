@@ -10,8 +10,8 @@ if ([$_SERVER["REQUEST_METHOD"] === "POST"]) {
         require_once 'petdelete_contr.inc.php';
 
         $errors = [];
-        if (!is_pet_registered($pdo, $user_id)) {
-            $errors["not_registered"] = "No pet to delete";
+        if (!is_pet_registered($pdo, $user_id, $name)) {
+            $errors["not_registered"] = "Pet does not exist!";
         }
 
         if ($errors) {
