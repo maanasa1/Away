@@ -39,7 +39,7 @@
             <p class="right">Whether you're at work for a few hours or on a two week vacation,
                 we have the services you need. Pets are our family, so we only hire trustworthy
                 animal lovers to care for yours. </p>
-            <a href="./customer.php">
+            <a href="./booking.php">
                 <button class="btn">Find a Sitter</button>
             </a>
         </div>
