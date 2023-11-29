@@ -54,7 +54,7 @@ require_once 'includes/petregister/petregister_view.inc.php';
                     </div>
 
                     <div class="group">
-                        <label for="name" class="label">Weight:</label>
+                        <label for="name" class="label">Weight (lbs):</label>
                         <input type="number" id="weight" name="weight" class="input">
                     </div>
 
