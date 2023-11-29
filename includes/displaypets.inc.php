@@ -27,7 +27,7 @@ require_once 'petdelete/petdelete_view.inc.php';
                 <tr>
                     <th>Name</th>
                     <th>Age</th>
-                    <th>Weight</th>
+                    <th>Weight (lbs)</th>
                 </tr>
 
                 <?php
