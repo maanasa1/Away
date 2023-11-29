@@ -5,6 +5,7 @@ CREATE TABLE Animals (
 	weight INT,
 	animal_type VARCHAR(15),
 	age INT,
+	weight INT
 );
 
 CREATE TABLE Reptile (
@@ -39,7 +40,6 @@ CREATE TABLE Dogs (
 CREATE TABLE Sitters (
     user_id SERIAL PRIMARY KEY REFERENCES users ON DELETE CASCADE,
     zipcode CHAR(5),
-	rate INT,
     available_days VARCHAR(70),
     available_times VARCHAR(30),
     size_pref VARCHAR(60),
@@ -47,7 +47,7 @@ CREATE TABLE Sitters (
 );
 
 CREATE TABLE Customers (
-    user_id SERIAL PRIMARY KEY REFERENCES Users ON DELETE CASCADE,
+    user_id SERIAL PRIMARY KEY REFERENCES Users ON DELETE CASCADE
 	email VARCHAR(50) NOT NULL 
 );
 
