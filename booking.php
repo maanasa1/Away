@@ -56,7 +56,7 @@ if (isset($_SESSION['availableSitters'])) {
 
                 <div class="availability-container">
                     <div class="availability-dropdown">
-                        <label for="dropdown" class="label">Availabilty:</label><br>
+                        <label for="dropdown" class="label">Days needed:</label><br>
                             <select id="days" class="multiselect" name="days[]" multiple required>
                                 <option value="Monday">Monday</option>
                                 <option value="Tuesday">Tuesday</option>
@@ -80,7 +80,7 @@ if (isset($_SESSION['availableSitters'])) {
                 
         
                 <div class="size-container">
-                    <label for="size" class="label">I am comfortable with sizes:</label><br>
+                    <label for="size" class="label">The size of my pet is:</label><br>
                     <span id="size">
                         <label for="small" class="check-text">Small (0-15 lbs)</label>
                         <input type="checkbox" id="small" name="size_pref[]" value="Small">
@@ -96,7 +96,7 @@ if (isset($_SESSION['availableSitters'])) {
         
 
                 <div class="type-container">
-                    <label for="type" class="label">I want to sit:</label><br>
+                    <label for="type" class="label">I have a:</label><br>
                     <span id="type">
                         <label for="dog" class="check-text">Dog</label>
                         <input type="checkbox" id="dog" name="type_pref[]" value="Dog">
