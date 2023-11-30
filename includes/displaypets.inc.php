@@ -50,7 +50,7 @@ require_once 'petdelete/petdelete_view.inc.php';
             <br>
             <form action="includes/petdelete/petdelete.inc.php" method="post">
                 <label for="name">Enter the name of the pet to delete:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" class="input" required>
                 <br>
                 <input type="submit" class="btn" value="Delete Pet">
             </form>
