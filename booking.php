@@ -41,7 +41,7 @@ if (isset($_SESSION['availableSitters'])) {
 
 <body class="homepage">
     
-    <div class="text-content two-cols">
+     <div class="text-content two-cols">
  
         <div>
             <h3>Discover sitters near you:</h3>
@@ -57,7 +57,7 @@ if (isset($_SESSION['availableSitters'])) {
                 <div class="availability-container">
                     <div class="availability-dropdown">
                         <label for="dropdown" class="label">Days needed:</label><br>
-                            <select id="days" class="multiselect" name="days[]" multiple required>
+                            <select id="days" class="multiselect" name="day" required>
                                 <option value="Monday">Monday</option>
                                 <option value="Tuesday">Tuesday</option>
                                 <option value="Wednesday">Wednesday</option>
@@ -70,7 +70,7 @@ if (isset($_SESSION['availableSitters'])) {
         
                         <div class="availability-dropdown">
                             <label for="dropdown" class="label">Time of day:</label><br>
-                            <select id="time" class="multiselect" name="time[]" multiple required>
+                            <select id="time" class="multiselect" name="time" required>
                                 <option value="Morning">Morning</option>
                                 <option value="Afternoon">Afternoon</option>
                                 <option value="Evening">Evening</option>
@@ -83,35 +83,34 @@ if (isset($_SESSION['availableSitters'])) {
                     <label for="size" class="label">The size of my pet is:</label><br>
                     <span id="size">
                         <label for="small" class="check-text">Small (0-15 lbs)</label>
-                        <input type="checkbox" id="small" name="size_pref[]" value="Small">
+                        <input type="radio" id="small" name="size_pref" value="Small">
 
                         <label for="med" class="check-text">Medium (16-40 lbs)</label>
-                        <input type="checkbox" id="med" name="size_pref[]" value="Medium">
+                        <input type="radio" id="med" name="size_pref" value="Medium">
 
                         <label for="large" class="check-text">Large (40+ lbs)</label>
-                        <input type="checkbox" id="large" name="size_pref[]" value="Large">
+                        <input type="radio" id="large" name="size_pref" value="Large">
                     </span>
                 </div>
-                                
         
 
                 <div class="type-container">
                     <label for="type" class="label">I have a:</label><br>
                     <span id="type">
                         <label for="dog" class="check-text">Dog</label>
-                        <input type="checkbox" id="dog" name="type_pref[]" value="Dog">
-    
+                        <input type="radio" id="dog" name="type_pref" value="Dog">
+
                         <label for="cat" class="check-text">Cat</label>
-                        <input type="checkbox" id="cat" name="type_pref[]" value="Cat"> <br>
+                        <input type="radio" id="cat" name="type_pref" value="Cat"> <br>
 
                         <label for="bird" class="check-text">Bird</label>
-                        <input type="checkbox" id="bird" name="type_pref[]" value="Bird">
-    
+                        <input type="radio" id="bird" name="type_pref" value="Bird">
+
                         <label for="sa" class="check-text">Small animal</label>
-                        <input type="checkbox" id="sa" name="type_pref[]" value="Small animal">
-    
+                        <input type="radio" id="sa" name="type_pref" value="Small animal">
+
                         <label for="liz" class="check-text">Lizard</label>
-                        <input type="checkbox" id="liz" name="type_pref[]" value="Lizard">
+                        <input type="radio" id="liz" name="type_pref" value="Lizard">
                     </span>
                 </div>
                             
