@@ -63,30 +63,30 @@ require_once 'includes/petregister/petregister_view.inc.php';
 
                         <div class="label_inside">
                             <label for="dog" class="label_inside">
-                                <input type="radio" id="dog" name="pet_type">
+                                <input type="radio" id="dog" name="pet_type" value="Dog">
                                 Dog
                             </label>
 
                             <label for="cat" class="label_inside">
-                                <input type="radio" id="cat" name="pet_type">
+                                <input type="radio" id="cat" name="pet_type" value="Cat">
                                 Cat
                             </label>
 
 
                             <label for="bird" class="label_inside">
-                                <input type="radio" id="bird" name="pet_type">
+                                <input type="radio" id="bird" name="pet_type" value="Bird">
                                 Bird
                             </label>
 
 
                             <label for="sa" class="label_inside">
-                                <input type="radio" id="sa" name="pet_type">
+                                <input type="radio" id="sa" name="pet_type" value="Small Animal">
                                 Small animal
                             </label>
 
 
                             <label for="liz" class="label_inside">
-                                <input type="radio" id="liz" name="pet_type">
+                                <input type="radio" id="liz" name="pet_type" value="Lizard">
                                 Lizard
                             </label>
 
