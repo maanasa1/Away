@@ -29,7 +29,7 @@ function is_customer_registered(object $pdo, string $user_id)
     }
 }
 
-function create_pet(object $pdo, string $name, int $user_id, int $weight, int $age)
+function create_pet(object $pdo, string $name, int $user_id, int $weight, int $age, string $pet_type)
 {
-    set_pet($pdo, $name, $user_id, $weight, $age);
+    set_pet($pdo, $name, $user_id, $weight, $age, $pet_type);
 }

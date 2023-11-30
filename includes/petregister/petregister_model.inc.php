@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-function set_pet(object $pdo, string $name, int $user_id, int $weight, int $age)
+function set_pet(object $pdo, string $name, int $user_id, int $weight, int $age, string $pet_type)
 {
-    $query = "INSERT INTO Animals (name, owner, weight, age) VALUES (:name, :user_id, :weight, :age);";
+    $query = "INSERT INTO Animals (name, owner, weight, age, animal_type) VALUES (:name, :user_id, :weight, :age, :pet_type);";
     $stmt = $pdo->prepare($query); //prevents SQL injection
     $stmt->bindParam(":name", $name);
     $stmt->bindParam(":user_id", $user_id);
     $stmt->bindParam(":weight", $weight);
     $stmt->bindParam(":age", $age);
+    $stmt->bindParam(":pet_type", $pet_type);
     $stmt->execute();
 
 }

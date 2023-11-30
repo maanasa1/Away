@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             die();
         }
 
-        create_pet($pdo, $name, $user_id, $weight, $age);
+        create_pet($pdo, $name, $user_id, $weight, $age, $pet_type);
 
         header("Location: ../../customer.php?registration=success");
 
