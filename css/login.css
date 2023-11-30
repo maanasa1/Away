@@ -108,10 +108,8 @@
 }
 
 .login-form .group .label,
-.login-form .group .input,
 .group .button {
   width: 100%;
-
   display: block;
 }
 
@@ -127,7 +125,6 @@
 
 .login-form .group .input,
 .group .button {
-  border: none;
   padding: 15px 20px;
   border-radius: 25px;
 
@@ -137,13 +134,17 @@
 .login-form .group .label {
   color: #47494a;
   font-size: 12px;
+}
 
-
+.login-form .group .input {
+  border:#47494a solid;
+  width: 93%;
+  display: block;
 }
 
 .group .button {
   background: #21414a;
-
+  border: none;
 }
 
 .login-form .group label .icon {

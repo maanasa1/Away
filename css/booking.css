@@ -14,16 +14,13 @@
 .button {
     color: #ffffff;
     cursor: pointer;
-
+    border: none;
+    padding: 15px 20px;
 }
 
 .input, .button {  
-  border: none;
-  padding: 15px 20px;
   border-radius: 25px;
-  
-    background: rgba(225, 213, 188, 0.20);
-
+  background: rgba(255, 255, 255, .1);
 }
 
 .label {
@@ -36,6 +33,7 @@
 
 .input {
     font-family: 'Segoe UI', sans-serif;
+    padding: 10px 10px;
 }
 
 .check-text {
@@ -48,14 +46,15 @@ input[type="checkbox"] {
 }
 
 
-  
+.input, .multiselect {
+    border:#47494a solid;
+}
 
 .multiselect {
-    border: none;
     padding: 5px 15px;
     border-radius: 25px;
 
-    background: rgba(225, 213, 188, 0.20);
+    background: rgba(255, 255, 255, .1);
     overflow: auto;
 }
 

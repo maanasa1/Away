@@ -35,6 +35,16 @@
 }
 
 .hero-text_customer .group .label,
+.hero-text_customer .group .button
+{
+    text-transform: uppercase;
+}
+
+.hero-text_customer .group .label
+{
+    font-size: 12px;
+}
+.hero-text_customer .group .label,
 .hero-text_customer .group .input
 {
     color: #47494a;
@@ -81,4 +91,12 @@
 
 input[type=radio] { 
     accent-color: #47494a
+}
+
+.input {
+    padding: 10px 10px;
+    border-radius: 25px;
+    font-family: 'Segoe UI', sans-serif;
+    background: rgba(225, 213, 188, 0.20);
+    border:#47494a solid;
 }
