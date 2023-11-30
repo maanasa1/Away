@@ -3,10 +3,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once '../config_session.inc.php';
     $user_id = $_SESSION["user_id"];
     $zipcode = htmlspecialchars($_POST["zipcode"]);
-    $availableDays = $_POST["days"];
-    $availableTimes = $_POST["time"];
-    $sizePref = $_POST["size_pref"];
-    $typePref = $_POST["type_pref"];
+    $availableDays = htmlspecialchars($_POST["day"]);
+    $availableTimes = htmlspecialchars($_POST["time"]);
+    $sizePref = htmlspecialchars($_POST["size_pref"]);
+    $typePref = htmlspecialchars($_POST["type_pref"]);
 
     try {
         require_once '../dbh.inc.php';

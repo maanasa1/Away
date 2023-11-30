@@ -1,23 +1,23 @@
 <?php
-
-function find_available_sitters(object $pdo, int $zipcode, array $availableDays, array $availableTimes, array $sizePref, array $typePref) {
+function find_available_sitters(object $pdo, int $zipcode, string $availableDay, string $availableTime, string $sizePref, string $typePref) {
     $query = "SELECT * FROM Sitters 
-    WHERE zipcode = :zipcode 
-    AND ARRAY[:availableDays] && string_to_array(available_days, ',')
-    AND ARRAY[:availableTimes] && string_to_array(available_times, ',')
-    AND ARRAY[:sizePref] && string_to_array(size_pref, ',')
-    AND ARRAY[:typePref] && string_to_array(type_pref, ',')";
+        WHERE zipcode = :zipcode 
+        AND available_days LIKE :availableDay
+        AND available_times LIKE :availableTime
+        AND size_pref LIKE :sizePref
+        AND type_pref LIKE :typePref";
 
-    $stmt = $pdo->prepare($query); 
-
+    $stmt = $pdo->prepare($query);
     $stmt->bindParam(':zipcode', $zipcode);
-    $stmt->bindParam(':availableDays', implode(",", $availableDays));
-    $stmt->bindParam(':availableTimes', implode(",", $availableTimes));
-    $stmt->bindParam(':sizePref', implode(",", $sizePref));
-    $stmt->bindParam(':typePref', implode(",", $typePref));
+    $stmt->bindValue(':availableDay', "%$availableDay%");
+    $stmt->bindValue(':availableTime', "%$availableTime%");
+    $stmt->bindValue(':sizePref', "%$sizePref%");
+    $stmt->bindValue(':typePref', "%$typePref%");
+
+    // Debug output
+    echo $query;
 
     $stmt->execute();
-
     $availableSitters = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Return the array of available sitters
