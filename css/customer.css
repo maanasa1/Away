@@ -31,6 +31,7 @@
 .hero-text_customer .group .label{
     display: block;
     position: inherit;
+    font-size: 12px;
     
 }
 
@@ -38,12 +39,9 @@
 .hero-text_customer .group .button
 {
     text-transform: uppercase;
+    
 }
 
-.hero-text_customer .group .label
-{
-    font-size: 12px;
-}
 .hero-text_customer .group .label,
 .hero-text_customer .group .input
 {
@@ -75,12 +73,12 @@
 .hero-text_customer .group .label,
 .hero-text_customer .group .label_inside{
   color: #47494a;
-  font-size: 15px;
-
 
 }
+
 .hero-text_customer .group .label_inside{
     padding: 5px;
+    font-size: 15px;
 }
 
 .group .button {
