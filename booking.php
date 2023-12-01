@@ -2,13 +2,12 @@
 require_once 'includes/config_session.inc.php';
 require_once 'includes/booking/booking_view.inc.php';
 
-// booking.php
 $availableSitters = [];
 
-// Check if there are search results in the session variable
+
 if (isset($_SESSION['availableSitters'])) {
     $availableSitters = $_SESSION['availableSitters'];
-    // Clear the session variable to avoid displaying results on subsequent page loads
+
     unset($_SESSION['availableSitters']);
 }
 ?>
@@ -127,7 +126,6 @@ if (isset($_SESSION['availableSitters'])) {
     <div class="text-content two-cols">  
         <?php
 
-        // Assuming you have $availableSitters from the controller
         
         if (!empty($availableSitters)) {
             echo "<h3>Available Sitters</h3>";
