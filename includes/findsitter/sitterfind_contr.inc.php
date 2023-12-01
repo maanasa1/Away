@@ -14,7 +14,7 @@ function find_available_sitters(object $pdo, int $zipcode, string $availableDay,
     $stmt->bindValue(':sizePref', "%$sizePref%");
     $stmt->bindValue(':typePref', "%$typePref%");
 
-    // Debug output
+
     echo $query;
 
     $stmt->execute();
