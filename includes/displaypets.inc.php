@@ -26,8 +26,9 @@ require_once 'petdelete/petdelete_view.inc.php';
             <table>
                 <tr>
                     <th>Name</th>
-                    <th>Age</th>
+                    <th>Age (years)</th>
                     <th>Weight (lbs)</th>
+                    <th>Type</th>
                 </tr>
 
                 <?php
@@ -42,6 +43,9 @@ require_once 'petdelete/petdelete_view.inc.php';
                         </td>
                         <td>
                             <?php echo $pet["weight"]; ?>
+                        </td>
+                        <td>
+                            <?php echo $pet["animal_type"]; ?>
                         </td>
                     </tr>
                 <?php } ?>
